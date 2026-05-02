@@ -81,6 +81,7 @@ if place_meeting(x,y+1,obj_wall) {
 }
 
 // jump
+if dash_cd <= 0 {
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
 	or (!grounded and key_jump and jumps < jumps_max)  {
 	vsp = -jump_power
@@ -100,7 +101,7 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	jump_time = 0
 } else if key_jump and !grounded and wall_jump <= 0 and !ride {
 	jump_buffer = 15
-}
+} }
 vsp += grv
 if jump_buffer > 0 {
 jump_buffer -= 1
@@ -192,6 +193,7 @@ if dash_cd > 0 {
 
 // wall jump
 if place_meeting(x+sign((move)*4),y,obj_wall) and pwr_wall_jump and !grounded {
+	jump_spin = false
 	pogo = false
 	wall_jump = 7
 	dash_can = true
