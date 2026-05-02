@@ -24,6 +24,7 @@ if place_meeting(x,y,obj_water) {
 	dash_cd = 30
 	jumps = 0
 	sprite_angle = angle_difference(sprite_angle,0)
+	vsp /= 2
 } 
 
 // move lerp
@@ -39,6 +40,8 @@ vsp = clamp(vsp,-400,6)
 // sprites 
 if ride {
  	sprite_index = spr_player_ride
+} else if wall_jump {
+	sprite_index = spr_player_climb
 } else if dash_time > 0 {
 	sprite_index = spr_player_dash
 } else if !grounded and jumps >= 2 {
@@ -81,7 +84,7 @@ if place_meeting(x,y+1,obj_wall) {
 }
 
 // jump
-if dash_cd <= 0 {
+
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
 	or (!grounded and key_jump and jumps < jumps_max)  {
 	vsp = -jump_power
@@ -90,9 +93,10 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	jumps += 1
 	sprite_xscale = 1.4 * sprite_turn
 	sprite_yscale = 0.8
-	pogo = false
 	if jumps > 1 {
 	jump_time = jump_time_set
+	} else {
+		pogo = false	
 	}
 } else if key_jump_long and !grounded and jump_time > 0 {
 	vsp += -jump_extend
@@ -101,7 +105,7 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	jump_time = 0
 } else if key_jump and !grounded and wall_jump <= 0 and !ride {
 	jump_buffer = 15
-} }
+} 
 vsp += grv
 if jump_buffer > 0 {
 jump_buffer -= 1
@@ -159,8 +163,12 @@ if place_meeting(x,y-1,obj_wall) {
 	vsp = 0.5
 }
 
+if dash_cd > 0 and !grounded and !place_meeting(x,y,obj_water) {
+	dash_cd = 100000	
+}
+
 // dash start
-if key_dash and dash_time <= 0 and dash_cd <= 0 and dash_can and pwr_dash and !ride {
+if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride {
 	sprite_angle = 0
 	sprite_xscale = 2 * sprite_turn
 	sprite_yscale = 0.8

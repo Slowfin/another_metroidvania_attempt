@@ -24,6 +24,7 @@ if !place_meeting(x,y,obj_water) {
 	vsp -= 2
 	sp = sp_set
 	jumps = 0
+	dash_cd = 1
 } 
 jump_spin = false	
 pogo = false
