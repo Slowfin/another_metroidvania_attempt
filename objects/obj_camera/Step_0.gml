@@ -23,4 +23,7 @@ if obj_player.vsp > 0 {
 	vsp_offset = 0	
 }
 
-camera_set_view_pos(view_camera[0],x-160,y-100)
+var shake_x = choose(-shake_power,shake_power) 
+var shake_y = choose(-shake_power,shake_power) 
+
+camera_set_view_pos(view_camera[0],x-160+shake_x,y-100+shake_y)

@@ -21,17 +21,17 @@ if place_meeting(x,y,obj_camera_limit) {
 	obj_camera.set_x = set_x
 	obj_camera.set_y = set_y 
 	obj_camera.sp = sp
-	limit_x1 = limit_x1
-	limit_x2 = limit_x2
-	limit_y1 = limit_y1
-	limit_y2 = limit_y2
+	obj_camera.limit_x1 = limit_x1
+	obj_camera.limit_x2 = limit_x2
+	obj_camera.limit_y1 = limit_y1
+	obj_camera.limit_y2 = limit_y2
 	}
 } else {
 	obj_camera.set_x = 0
 	obj_camera.set_y = 0
 	obj_camera.sp = obj_camera.sp_set
-	limit_x1 = 0
-	limit_x2 = room_width
-	limit_y1 = 0
-	limit_y2 = room_height
+	obj_camera.limit_x1 = 0
+	obj_camera.limit_x2 = room_width
+	obj_camera.limit_y1 = 0
+	obj_camera.limit_y2 = room_height
 }

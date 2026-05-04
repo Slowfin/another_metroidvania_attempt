@@ -102,7 +102,7 @@ if pwr_double_jump {
 }
 
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
-	or (!grounded and key_jump and jumps < jumps_max)  {
+	or (!grounded and key_jump and jumps < jumps_max and pwr_double_jump)  {
 	image_index = 0
 	vsp = -jump_power
 	jump_buffer = 0
@@ -287,6 +287,8 @@ if ride {
 	if point_distance(x,y,ride_target.x,ride_target.y) < 2 {
 		audio_play_sound(snd_ride_bump,1,0)	
 		ride = false	
+		obj_camera.shake_power = 1
+		obj_camera.alarm[0] = 5
 	}
 	// jump while hooking
 	if key_jump and !place_meeting(x,y,obj_wall) {	

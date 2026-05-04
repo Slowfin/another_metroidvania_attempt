@@ -5,6 +5,8 @@ enum states_player {
 
 state = states_player.normal
 
+debug = true
+
 objmove = 0
 hsp = 0
 hsp_force = 0

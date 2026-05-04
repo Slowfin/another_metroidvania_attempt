@@ -1,3 +1,11 @@
+if wall == "pink" {
+	sprite_index = spr_wall_forest	
+}
+if wall == "dirt" {
+	sprite_index = spr_wall_dirt	
+}
+
+
 // straight
 if place_meeting(x+length,y,obj_wall){
 	collide_r = true
@@ -150,6 +158,16 @@ if collide_with == 3 and collide_with_diag == 1 {
 		image_angle = 90
 		image_yscale = -1
 		image_xscale = -1
+	}
+}
+
+if collide_with == 4 and collide_with_diag == 2 {
+	image_index = 12 
+	if collide_lu and collide_rd {
+		image_angle = 0	
+	}
+	if collide_ur and collide_dl {
+		image_angle = 90
 	}
 }
 	

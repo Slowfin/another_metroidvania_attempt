@@ -7,3 +7,5 @@ set_x = 0
 set_y = 0
 sp_set = 0.08
 sp = sp_set
+
+shake_power = 0

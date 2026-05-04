@@ -9,3 +9,4 @@ collide_dl = false
 collide_with = 0
 length = 8
 length_diag = 9
+wall = "pink"
