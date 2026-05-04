@@ -14,11 +14,12 @@
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"0d01976a-2f50-4c77-b2b5-2a622d76d9eb","name":"0d01976a-2f50-4c77-b2b5-2a622d76d9eb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
-  "gridX":0,
-  "gridY":0,
+  "gridX":8,
+  "gridY":8,
   "height":16,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"dce39ef2-4461-4b1e-a089-15a0cf28a340","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"dce39ef2-4461-4b1e-a089-15a0cf28a340","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"05a3c035-ee0b-4efe-afd9-3b79e4fd8c22","blendMode":0,"displayName":"default","isLocked":false,"name":"05a3c035-ee0b-4efe-afd9-3b79e4fd8c22","opacity":51.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_water",

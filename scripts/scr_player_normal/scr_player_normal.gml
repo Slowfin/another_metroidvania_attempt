@@ -24,11 +24,15 @@ if place_meeting(x,y,obj_water) {
 	dash_cd = 30
 	jumps = 0
 	sprite_angle = angle_difference(sprite_angle,0)
-	vsp /= 2
+	if pwr_swim {
+	vsp /= 3
+	} else {
+	vsp = 1
+	}
 } 
-
 // move lerp
 move = (key_right - key_left) * sp
+move_v = (key_down - key_up)
 hsp = lerp(hsp,move,acceleration) + hsp_force
 if !pogo { 
 sp = sp_set
@@ -49,7 +53,13 @@ if ride {
 } else if !grounded and jumps < 2 {
 	sprite_index = spr_player_jump
 } else if move != 0 {
+	if attack {
+	sprite_index = spr_player_run_attack
+	} else {
 	sprite_index = spr_player_run
+	}
+} else if attack {
+	sprite_index = spr_player_attack
 } else {
 	sprite_index = spr_player	
 }
@@ -77,21 +87,33 @@ if place_meeting(x,y+1,obj_wall) {
 	jumps = 0
 } else {
 	grounded = false	
+	if wall_jump <= 0 {
 	if jumps < 1 {
 	jumps = 1	
-	}
+	} }
 	grounded_time = 0
 }
 
 // jump
+if pwr_double_jump {
+	jumps_max = 2	
+} else {
+	jumps_max = 1	
+}
 
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
 	or (!grounded and key_jump and jumps < jumps_max)  {
+	image_index = 0
 	vsp = -jump_power
 	jump_buffer = 0
 	jump_coyot = 0
 	jumps += 1
 	sprite_xscale = 1.4 * sprite_turn
+	if jumps < 2 {
+		audio_play_sound(snd_jump,1,0,1,0,random_range(0.9,1.1))
+	} else {
+		audio_play_sound(snd_jump,1,0,1,0,random_range(1.3,1.5))
+	} 	
 	sprite_yscale = 0.8
 	if jumps > 1 {
 	jump_time = jump_time_set
@@ -106,7 +128,7 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 } else if key_jump and !grounded and wall_jump <= 0 and !ride {
 	jump_buffer = 15
 } 
-vsp += grv
+vsp += global.grv
 if jump_buffer > 0 {
 jump_buffer -= 1
 } 
@@ -154,7 +176,7 @@ if jumps > 1 and key_jump {
 
 if jump_spin {
 	sprite_angle -= 15 * sprite_turn
-} else {
+} else if !ride {
 	sprite_angle = 0  
 }
 
@@ -169,6 +191,8 @@ if dash_cd > 0 and !grounded and !place_meeting(x,y,obj_water) {
 
 // dash start
 if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride {
+	image_index = 0
+	audio_play_sound(snd_jump_dash,1,0,1,0,random_range(0.9,1.1))
 	sprite_angle = 0
 	sprite_xscale = 2 * sprite_turn
 	sprite_yscale = 0.8
@@ -219,6 +243,7 @@ if wall_jump > 0  {
 }	
 		
 if wall_jump > 0 and ((key_jump) or (jump_buffer > 0 ))  {
+	
 	//var psJump = part_system_create(parJump)
 	//part_particles_burst(psJump,x,y+8,parJump)
 	hsp = (wall_jump_dir * -1) * wall_jump_sp
@@ -230,7 +255,9 @@ if wall_jump > 0 and ((key_jump) or (jump_buffer > 0 ))  {
 	}
 	
 // hook ride
-if place_meeting(x,y,obj_hook_holder) and key_ride and !ride {
+if place_meeting(x,y,obj_hook_holder) and key_ride and !ride and pwr_ride {
+	audio_play_sound(snd_ride,1,1)
+	image_index = 0
 	pogo = false
 	ride = true
 	ride_sp = 0
@@ -238,6 +265,7 @@ if place_meeting(x,y,obj_hook_holder) and key_ride and !ride {
 	other.x = x
 	other.y = y
 	other.ride_target = pair_obj
+	sprite_angle = 0
 	}
 }
 
@@ -254,8 +282,10 @@ if ride {
 		} else {
 			ride_target_turn = -1
 		}
+		sprite_angle = lerp(sprite_angle,-ride_target_turn*(ride_sp*5),0.1)
 		sprite_turn = ride_target_turn
 	if point_distance(x,y,ride_target.x,ride_target.y) < 2 {
+		audio_play_sound(snd_ride_bump,1,0)	
 		ride = false	
 	}
 	// jump while hooking
@@ -265,10 +295,28 @@ if ride {
 		ride = false
 		vsp = -wall_jump_power
 		jump_time = jump_time_set
+		jumps = 1
 	}
 } else {
+	if audio_is_playing(snd_ride) {
+	audio_stop_sound(snd_ride)
+	}
 	ride_sp = 0	
 	acceleration = 0.2
+}
+
+// attack
+if key_attack and attack == false and attack_cd <= 0 and !ride {
+	attack_cd = attack_cd_set
+	if move == 0 {
+	image_index = 0
+	}
+	with instance_create_layer(x,y,"Player",obj_polovnik) {
+	}
+}
+
+if attack_cd > 0 {
+	attack_cd -= 1	
 }
 
 

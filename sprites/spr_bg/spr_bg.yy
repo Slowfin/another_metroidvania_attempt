@@ -19,15 +19,15 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"e38e98d2-dbd8-41b2-ad16-c0a8efdf425d","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e38e98d2-dbd8-41b2-ad16-c0a8efdf425d","opacity":10.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"e38e98d2-dbd8-41b2-ad16-c0a8efdf425d","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"e38e98d2-dbd8-41b2-ad16-c0a8efdf425d","opacity":37.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"e7636cad-ea4d-4c35-a670-80a0f2fbe080","blendMode":0,"displayName":"default","isLocked":false,"name":"e7636cad-ea4d-4c35-a670-80a0f2fbe080","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_bg",
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"sprites",
-    "path":"folders/sprites.yy",
+    "name":"BG",
+    "path":"folders/sprites/BG.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

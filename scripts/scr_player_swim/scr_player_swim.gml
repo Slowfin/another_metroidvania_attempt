@@ -18,6 +18,11 @@ if place_meeting(x,y+vsp,obj_wall) {
 }	
 y += vsp
 
+// if can't swim can jump out
+if !pwr_swim {
+	vsp -= 0.08	
+}
+
 //  unswim
 if !place_meeting(x,y,obj_water) {
 	state = states_player.normal
@@ -31,7 +36,11 @@ pogo = false
 
 // move lerp
 move = (key_right - key_left) * sp
+if pwr_swim {
 move_v = (key_down - key_up) * sp
+} else {
+move_v = 0	
+}
 hsp = (lerp(hsp,move,acceleration_swim) + hsp_force)
 vsp = lerp(vsp,move_v,acceleration_swim)
 
@@ -80,7 +89,7 @@ if move > 0 {
 }
 
 // dash start
-if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride {
+if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride and pwr_swim {
 	sprite_xscale = 2 * sprite_turn
 	sprite_yscale = 0.8
 	dash_time = 7

@@ -8,7 +8,8 @@ key_jump_long = keyboard_check(ord("Z"))
 key_jump_release = keyboard_check_released(ord("Z"))
 key_dash = keyboard_check_pressed(ord("C"))
 key_ride = keyboard_check_pressed(ord("S"))
-key_pogo = keyboard_check_pressed(ord("X"))
+key_pogo = keyboard_check_pressed(ord("D"))
+key_attack = keyboard_check_pressed(ord("X"))
 
 switch state {
 	case states_player.normal: scr_player_normal() break

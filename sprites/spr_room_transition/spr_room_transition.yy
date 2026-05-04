@@ -19,7 +19,7 @@
   "height":16,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"d0344d93-e699-4c10-85ea-df65d9b0ec91","blendMode":0,"displayName":"default","isLocked":false,"name":"d0344d93-e699-4c10-85ea-df65d9b0ec91","opacity":54.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"d0344d93-e699-4c10-85ea-df65d9b0ec91","blendMode":0,"displayName":"default","isLocked":false,"name":"d0344d93-e699-4c10-85ea-df65d9b0ec91","opacity":33.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_room_transition",
   "nineSlice":{

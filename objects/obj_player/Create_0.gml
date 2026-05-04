@@ -13,15 +13,19 @@ move = 0
 move_v = 0
 sp_set = 1.5
 sp = sp_set
-grv = 0.3
+global.grv = 0.3
 acceleration = 0.2
 acceleration_swim = 0.05
 grounded = false
 grounded_time = 0
 
+hp = 5 
 
 pwr_wall_jump = true
 pwr_dash = true
+pwr_double_jump = true
+pwr_ride = true
+pwr_swim =  true
 
 jump_power = 3.7
 jump_extend = 0.375
@@ -53,6 +57,10 @@ dash_sp	= dash_sp_set
 dash_turn = 0
 dash_hsp = 0 
 dash_vsp = 0
+
+attack = false
+attack_cd_set = 30
+attack_cd = 0
 
 pogo = false
 pogo_buffer = 0

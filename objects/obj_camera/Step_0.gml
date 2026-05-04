@@ -1,3 +1,8 @@
+limit_x1 = 0
+limit_x2 = room_width
+limit_y1 = 0
+limit_y2 = room_height
+
 if set_x == 0 {
 x = lerp(x,obj_player.x,sp)
 } else {
@@ -10,7 +15,7 @@ y = lerp(y,set_y+10,sp)
 }
 	
 x = clamp(x,limit_x1+160,limit_x2-160)
-y = clamp(y,limit_x1+90,limit_y2-90+16)
+y = clamp(y,limit_y1+90+10,limit_y2-90+16)
 
 if obj_player.vsp > 0 {
 	vsp_offset = obj_player.vsp * 2

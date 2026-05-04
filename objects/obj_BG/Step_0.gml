@@ -1,0 +1,5 @@
+//layer_x("BG_object",lerp(0,camera_get_view_x(view_camera[0]),0.95))
+//layer_x("BG_near",lerp(0,camera_get_view_x(view_camera[0]),0.5))
+//layer_x("BG_mid",lerp(0,camera_get_view_x(view_camera[0]),0.25))
+layer_x("BG_far",lerp(0,camera_get_view_x(view_camera[0]),0.025))
+layer_x("BG_fore",lerp(0,camera_get_view_x(view_camera[0]),0.1))
