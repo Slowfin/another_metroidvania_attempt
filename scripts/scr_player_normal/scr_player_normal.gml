@@ -31,11 +31,13 @@ if place_meeting(x,y,obj_water) {
 	}
 } 
 // move lerp
+if !cant_move {
 move = (key_right - key_left) * sp
 move_v = (key_down - key_up)
 hsp = lerp(hsp,move,acceleration) + hsp_force
 if !pogo { 
 sp = sp_set
+}
 }
 
 
@@ -101,6 +103,7 @@ if pwr_double_jump {
 	jumps_max = 1	
 }
 
+if !cant_move {
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
 	or (!grounded and key_jump and jumps < jumps_max and pwr_double_jump)  {
 	image_index = 0
@@ -129,6 +132,7 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	jump_buffer = 15
 } 
 vsp += global.grv
+}
 if jump_buffer > 0 {
 jump_buffer -= 1
 } 
@@ -137,6 +141,7 @@ jump_coyot -= 1
 }
 
 // POGO buffer
+if !cant_move {
 if key_pogo and !grounded {
 	if pogo_buffer <= 0 {
 	pogo_buffer = 15
@@ -166,6 +171,7 @@ if ((pogo_buffer > 0) and grounded) {
 	sp = clamp(sp,0,3)
 	pogo_power = clamp(pogo_power,0,2)
 }
+}
 
 // jump spin
 if jumps > 1 and key_jump {
@@ -189,6 +195,7 @@ if dash_cd > 0 and !grounded and !place_meeting(x,y,obj_water) {
 	dash_cd = 100000	
 }
 
+if !cant_move {
 // dash start
 if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride {
 	image_index = 0
@@ -221,9 +228,11 @@ if dash_time >= 0 {
 if dash_cd > 0 {
 	dash_cd -= 1	
 }
+}
 
 
 // wall jump
+if !cant_move {
 if place_meeting(x+sign((move)*4),y,obj_wall) and pwr_wall_jump and !grounded {
 	jump_spin = false
 	pogo = false
@@ -253,8 +262,10 @@ if wall_jump > 0 and ((key_jump) or (jump_buffer > 0 ))  {
 	wall_jump = 0
 	dash_can = true
 	}
+}
 	
 // hook ride
+if !cant_move {
 if place_meeting(x,y,obj_hook_holder) and key_ride and !ride and pwr_ride {
 	audio_play_sound(snd_ride,1,1)
 	image_index = 0
@@ -306,20 +317,28 @@ if ride {
 	ride_sp = 0	
 	acceleration = 0.2
 }
+}
 
 // attack
+if !cant_move {
 if key_attack and attack == false and attack_cd <= 0 and !ride {
 	attack_cd = attack_cd_set
+	audio_play_sound(snd_hit,1,0,1,0,random_range(0.85,1.15))	
 	if move == 0 {
 	image_index = 0
 	}
 	with instance_create_layer(x,y,"Player",obj_polovnik) {
 	}
 }
+}
 
 if attack_cd > 0 {
 	attack_cd -= 1	
 }
+
+player_heal()
+player_attack_ketchup()
+
 
 
 if hsp_force != 0 {

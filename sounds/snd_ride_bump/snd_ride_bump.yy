@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.3636281,
+  "duration":0.14074829,
   "exportDir":"",
   "name":"snd_ride_bump",
   "parent":{

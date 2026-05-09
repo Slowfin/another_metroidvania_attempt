@@ -1,19 +1,22 @@
 // keybinds
-key_right = keyboard_check(vk_right)
-key_left = keyboard_check(vk_left)
-key_down = keyboard_check(vk_down)
-key_up = keyboard_check(vk_up)
-key_jump = keyboard_check_pressed(ord("Z"))
-key_jump_long = keyboard_check(ord("Z"))
-key_jump_release = keyboard_check_released(ord("Z"))
-key_dash = keyboard_check_pressed(ord("C"))
-key_ride = keyboard_check_pressed(ord("S"))
-key_pogo = keyboard_check_pressed(ord("D"))
-key_attack = keyboard_check_pressed(ord("X"))
+ scr_keybinds()
 
 switch state {
 	case states_player.normal: scr_player_normal() break
 	case states_player.swim: scr_player_swim() break
+	case states_player.knockback: scr_player_knockback() break
+	case states_player.heal: scr_player_heal() break
+	case states_player.attack_ketchup: scr_player_attack_ketchup() break
+}
+
+if keyboard_check_pressed(ord("R")) {
+	game_restart()	
+}
+if keyboard_check_pressed(vk_backspace) and invincible <= 0{
+	get_hit = true
+}	
+if keyboard_check_pressed(vk_enter) {
+	hp += 1	
 }
 
 if place_meeting(x,y,obj_camera_limit) {
@@ -35,3 +38,48 @@ if place_meeting(x,y,obj_camera_limit) {
 	obj_camera.limit_y1 = 0
 	obj_camera.limit_y2 = room_height
 }
+
+
+
+if invincible > 0 {
+	invincible -= 1
+} else {
+}
+	
+if get_hit {
+	hp -= 1
+	get_hit = false
+	alarm[0] = 7
+	invincible = invincible_set
+	alarm[1] = 15
+	obj_camera.alarm[0] = 5
+	obj_camera.shake_power = 2
+	obj_get_hit.image_alpha = 1
+	layer = layer_get_id("Instances_white")
+	if state != states_player.heal and state != states_player.attack_ketchup {
+	prev_state	= state	
+	} else {
+	prev_state	= states_player.normal
+	}
+	knockback_time = 40
+	state = states_player.knockback
+	hsp = sign(x - source_x) * 2
+	vsp = -4
+	audio_play_sound(snd_get_hit,1,0,1,0,random_range(0.8,1.1))
+	
+}
+
+
+
+if hp <= 0 {
+	hp = 0
+	image_blend = c_red	
+} else {
+	image_blend = c_white	
+}
+
+ketchup = clamp(ketchup,0,ketchup_max)
+
+//if hp <= 0 {
+//	sprite_index = spr_player_dead	
+//}

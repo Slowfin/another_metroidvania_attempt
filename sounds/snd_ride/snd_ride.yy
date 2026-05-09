@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.3607256,
+  "duration":1.3636281,
   "exportDir":"",
   "name":"snd_ride",
   "parent":{

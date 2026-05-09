@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"spr_polovnik",
   "bboxMode":2,
-  "bbox_bottom":36,
+  "bbox_bottom":40,
   "bbox_left":0,
   "bbox_right":37,
   "bbox_top":3,

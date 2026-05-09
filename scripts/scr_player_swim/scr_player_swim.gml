@@ -166,6 +166,9 @@ if ride {
 	acceleration = 0.2
 }
 
+player_heal()
+player_attack_ketchup()
+
 
 if hsp_force != 0 {
 	hsp_force = lerp(hsp_force,0,0.1)

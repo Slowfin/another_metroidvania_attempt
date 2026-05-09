@@ -22,3 +22,20 @@ y = obj_player.y+(y_offset*turn_y)
 image_xscale = 1 * turn
 image_yscale = choose(-1,1)
 obj_player.attack = true
+
+damage = obj_player.damage
+
+if place_meeting(x,y,obj_enemy) {
+	with obj_enemy if place_meeting(x,y,obj_polovnik) and can_get_hit {
+		get_hit = true
+		get_damage = other.damage
+	}	
+	if turn_y > 0 {
+			obj_player.vsp = -obj_player.jump_power	
+		}
+	obj_player.ketchup += 1
+	audio_play_sound(snd_slash,1,0,1,0,random_range(0.85,1.15))
+	obj_camera.alarm[0] = 5
+	obj_camera.shake_power = 1
+}
+

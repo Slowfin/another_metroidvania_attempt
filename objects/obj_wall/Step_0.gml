@@ -162,12 +162,14 @@ if collide_with == 3 and collide_with_diag == 1 {
 }
 
 if collide_with == 4 and collide_with_diag == 2 {
-	image_index = 12 
+	
 	if collide_lu and collide_rd {
 		image_angle = 0	
+		image_index = 12 
 	}
 	if collide_ur and collide_dl {
 		image_angle = 90
+		image_index = 12 
 	}
 }
 	

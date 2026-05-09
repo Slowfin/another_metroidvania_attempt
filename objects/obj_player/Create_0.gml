@@ -1,11 +1,12 @@
 enum states_player {
 	normal,
-	swim
+	swim,
+	knockback,
+	heal,
+	attack_ketchup
 }
 
 state = states_player.normal
-
-debug = true
 
 objmove = 0
 hsp = 0
@@ -20,14 +21,25 @@ acceleration = 0.2
 acceleration_swim = 0.05
 grounded = false
 grounded_time = 0
+cant_move = false
 
-hp = 5 
+ketchup = 5
+ketchup_max = 5
 
-pwr_wall_jump = true
-pwr_dash = true
-pwr_double_jump = true
+max_hp = 5
+hp = max_hp
+heal_time_set = 60
+heal_time = 0
+damage = 7
+get_hit = false
+invincible_set = 90
+invincible = 0
+
+pwr_wall_jump = false
+pwr_dash = false
+pwr_double_jump = false
 pwr_ride = true
-pwr_swim =  true
+pwr_swim =  false
 
 jump_power = 3.7
 jump_extend = 0.375
@@ -47,9 +59,6 @@ wall_jump_power = 2.2
 ride = false
 ride_target = noone
 
-attack_cd_set = 10
-attack_cd = 0
-
 dash_cd_set = 30
 dash_cd = 0
 dash_time = 0
@@ -61,15 +70,48 @@ dash_hsp = 0
 dash_vsp = 0
 
 attack = false
-attack_cd_set = 30
+attack_cd_set = 20
 attack_cd = 0
+attack_time_set = 40
+attack_time = 0
 
 pogo = false
 pogo_buffer = 0
 pogo_power = 1.3
+source_x = 0
+source_y = 0
+knockback_time = 0
 
 
 sprite_xscale = 1
 sprite_yscale = 1
 sprite_angle = 0
 sprite_turn = 1
+
+// heal
+function player_heal() {
+	if ketchup >= 5 and key_heal and !cant_move{
+	ketchup = 0
+	prev_state = state
+	state = states_player.heal
+	heal_time = heal_time_set
+	sprite_angle = 0
+	_x = x
+	_y = y
+}
+}
+
+function player_attack_ketchup()  {
+	if ketchup >= 2 and key_attack_ketchup  {
+	ketchup -= 2
+	if state != states_player.knockback {
+		prev_state = state
+	} else {
+		prev_state = states_player.normal	
+	}
+	state = states_player.attack_ketchup
+	attack_time = attack_time_set 
+	image_index = 0
+	alarm[3] = 10
+}	
+}
