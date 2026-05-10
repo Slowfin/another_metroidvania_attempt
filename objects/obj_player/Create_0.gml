@@ -40,6 +40,7 @@ pwr_dash = false
 pwr_double_jump = false
 pwr_ride = false
 pwr_swim =  false
+pwr_ketchup_attack = false
 
 jump_power = 3.7
 jump_extend = 0.375
@@ -92,10 +93,15 @@ sprite_turn = 1
 function player_heal() {
 	if ketchup >= 5 and key_heal and !cant_move{
 	ketchup = 0
+	if state != states_player.knockback {
 	prev_state = state
+	} else {
+	prev_state = states_player.normal
+	} 
 	state = states_player.heal
 	heal_time = heal_time_set
 	sprite_angle = 0
+	knockback_time = 2
 	_x = x
 	_y = y
 	instance_create_layer(x,y-16,"Game_lower",obj_heal_bar)
@@ -103,13 +109,14 @@ function player_heal() {
 }
 
 function player_attack_ketchup()  {
-	if ketchup >= 2 and key_attack_ketchup  {
+	if ketchup >= 2 and key_attack_ketchup and pwr_ketchup_attack {
 	ketchup -= 2
 	if state != states_player.knockback {
 		prev_state = state
 	} else {
 		prev_state = states_player.normal	
 	}
+	knockback_time = 0
 	state = states_player.attack_ketchup
 	attack_time = attack_time_set 
 	image_index = 0

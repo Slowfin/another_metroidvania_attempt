@@ -77,10 +77,11 @@ function save_load() {
 	if !instance_exists(obj_player) {
 	instance_create_layer(save_data.player.pos._x,save_data.player.pos._y,"Player",obj_player)
 	}
-	obj_player.hp = save_data.player.max_hp 
+	obj_player.max_hp = save_data.player.max_hp 
+	obj_player.hp = obj_player.max_hp
 	obj_player.x = save_data.player.pos._x
 	obj_player.y = save_data.player.pos._y
-	obj_player.ketchup = 1
+	obj_player.ketchup = save_data.player.ketchup
 	obj_player.pwr_wall_jump = save_data.powers.wall_jump
 	obj_player.pwr_dash = save_data.powers.dash
 	obj_player.pwr_double_jump = save_data.powers.double_jump

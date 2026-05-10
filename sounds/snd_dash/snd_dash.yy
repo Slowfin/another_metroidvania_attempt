@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_jump_dash",
+  "%Name":"snd_dash",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":0.3686168,
   "exportDir":"",
-  "name":"snd_jump_dash",
+  "name":"snd_dash",
   "parent":{
     "name":"sounds",
     "path":"folders/sounds.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_jump_dash.ogg",
+  "soundFile":"snd_dash.ogg",
   "volume":1.0,
 }

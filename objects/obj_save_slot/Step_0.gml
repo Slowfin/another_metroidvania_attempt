@@ -32,6 +32,7 @@ if hover and mouse_check_button_released(mb_left) {
 				pwr_double_jump = false
 				pwr_ride = false
 				pwr_swim =  false
+				pwr_ketchup_attack = false
 				max_hp = 5
 				hp = max_hp
 				damage = 7

@@ -71,21 +71,22 @@ draw_sprite_ext(spr_health_bar_1,10,130,50,4,4,0,c_white,1)
 
 if obj_player.hp >= 11 {
 	draw_set_colour(c_white)
+	draw_set_halign(fa_center)
 	draw_text_transformed(150,35,"+" + string((obj_player.hp)-10),2,2,0)
 }	
 
 if obj_player.ketchup <= 0 {
-	draw_sprite_ext(spr_ketchup_bar,0,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar,0,65,228,4,4,0,c_white,1)
 } else if obj_player.ketchup >= 5 {
-	draw_sprite_ext(spr_ketchup_bar_full,image_index_extra,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar_full,image_index_extra,65,228,4,4,0,c_white,1)
 } else if obj_player.ketchup >= 4 {
-	draw_sprite_ext(spr_ketchup_bar,4,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar,4,65,228,4,4,0,c_white,1)
 } else if obj_player.ketchup >= 3 {
-	draw_sprite_ext(spr_ketchup_bar,3,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar,3,65,228,4,4,0,c_white,1)
 } else if obj_player.ketchup >= 2 {
-	draw_sprite_ext(spr_ketchup_bar,2,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar,2,65,228,4,4,0,c_white,1)
 } else if obj_player.ketchup >= 1 {
-	draw_sprite_ext(spr_ketchup_bar,1,65,220,4,4,0,c_white,1)
+	draw_sprite_ext(spr_ketchup_bar,1,65,228,4,4,0,c_white,1)
 }
 
 draw_set_colour(c_white)
@@ -101,6 +102,8 @@ if global.debug {
 	draw_text(10,10+(15*7),"hp "+string(obj_player.hp))
 	draw_text(10,10+(15*8),"ktchp "+string(obj_player.ketchup))
 	draw_text(10,10+(15*9),room_get_name(room))
+	draw_text(10,10+(15*10),string(obj_player.state))
+	draw_text(10,10+(15*11),obj_player.jumps)
 }
 
 if global.transition_alpha > 0 {

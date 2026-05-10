@@ -19,7 +19,8 @@ function save_game() {
 		dash: obj_player.pwr_dash,
 		double_jump: obj_player.pwr_double_jump,
 		ride: obj_player.pwr_ride,
-		swim: obj_player.pwr_swim	
+		swim: obj_player.pwr_swim,
+		ketchup_attack: obj_player.pwr_ketchup_attack
 			},
 	progress: {
 		temp_enemies: global.temp_enemies_killed = {},	

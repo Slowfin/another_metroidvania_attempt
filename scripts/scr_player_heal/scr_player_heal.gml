@@ -67,8 +67,7 @@ heal_time -= 1
 if heal_time <= 0 {
 	state = prev_state	
 	hp += 2
-	x = _x
-	y = _y
+	vsp = -1
 }
 
 var shake_x = choose(-0.5,0.5)

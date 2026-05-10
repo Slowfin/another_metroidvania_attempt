@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.30634922,
+  "duration":0.49349207,
   "exportDir":"",
   "name":"snd_heal_fail",
   "parent":{
@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_heal_fail.wav",
-  "volume":1.0,
+  "volume":0.44,
 }

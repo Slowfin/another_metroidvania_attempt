@@ -103,6 +103,8 @@ if pwr_double_jump {
 	jumps_max = 1	
 }
 
+jumps = clamp(jumps,0,jumps_max)
+
 if !cant_move {
 if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump and !grounded)
 	or (!grounded and key_jump and jumps < jumps_max and pwr_double_jump)  {
@@ -110,13 +112,16 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	vsp = -jump_power
 	jump_buffer = 0
 	jump_coyot = 0
+	if jumps < jumps_max {
 	jumps += 1
+	}
 	sprite_xscale = 1.4 * sprite_turn
+	if wall_jump <= 0 {
 	if jumps < 2 {
 		audio_play_sound(snd_jump,1,0,1,0,random_range(0.9,1.1))
 	} else if jumps >= 2 and pwr_double_jump {
 		audio_play_sound(snd_jump,1,0,1,0,random_range(1.3,1.5))
-	} 	
+	} 	}
 	sprite_yscale = 0.8
 	if jumps > 1 {
 	jump_time = jump_time_set
@@ -174,7 +179,7 @@ if ((pogo_buffer > 0) and grounded) {
 }
 
 // jump spin
-if jumps > 1 and key_jump {
+if jumps > 1 and key_jump and pwr_double_jump {
 	jump_spin = true	
 } else if grounded or wall_jump or ride {
 	jump_spin = false	
@@ -199,7 +204,7 @@ if !cant_move {
 // dash start
 if key_dash and dash_time <= 0 and dash_cd <= 0 and pwr_dash and !ride {
 	image_index = 0
-	audio_play_sound(snd_jump_dash,1,0,1,0,random_range(0.9,1.1))
+	audio_play_sound(snd_dash,1,0,1,0,random_range(0.9,1.1))
 	sprite_angle = 0
 	sprite_xscale = 2 * sprite_turn
 	sprite_yscale = 0.8
@@ -252,7 +257,7 @@ if wall_jump > 0  {
 }	
 		
 if wall_jump > 0 and ((key_jump) or (jump_buffer > 0 ))  {
-	
+	audio_play_sound(snd_jump,1,0,1,0,random_range(0.9,1.1))
 	//var psJump = part_system_create(parJump)
 	//part_particles_burst(psJump,x,y+8,parJump)
 	hsp = (wall_jump_dir * -1) * wall_jump_sp

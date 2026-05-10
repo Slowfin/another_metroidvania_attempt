@@ -40,3 +40,5 @@ if obj_player.state != states_player.heal and trigger == 1 {
 	instance_destroy()	
 	}
 }
+
+y = lerp(y,_y,0.1)

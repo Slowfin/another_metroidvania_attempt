@@ -9,6 +9,7 @@ switch state {
 	case states_player.attack_ketchup: scr_player_attack_ketchup() break
 }
 
+if global.cheats {
 if keyboard_check_pressed(ord("R")) {
 	game_restart()	
 }
@@ -17,6 +18,9 @@ if keyboard_check_pressed(vk_backspace) and invincible <= 0{
 }	
 if keyboard_check_pressed(vk_enter) {
 	hp += 1	
+} if keyboard_check_pressed(vk_shift) {
+	ketchup += 1	
+}
 }
 
 if place_meeting(x,y,obj_camera_limit) {
@@ -56,7 +60,7 @@ if get_hit {
 	obj_camera.shake_power = 2
 	obj_get_hit.image_alpha = 1
 	layer = layer_get_id("Instances_white")
-	if state != states_player.heal and state != states_player.attack_ketchup {
+	if state != states_player.heal and state != states_player.attack_ketchup and state != states_player.knockback {
 	prev_state	= state	
 	} else {
 	prev_state	= states_player.normal

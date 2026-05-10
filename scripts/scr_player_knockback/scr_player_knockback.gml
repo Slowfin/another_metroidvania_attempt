@@ -54,6 +54,7 @@ sprite_index = spr_player_hit
 if knockback_time <= 0 or place_meeting(x,y+1,obj_wall) {
 	state = prev_state	
 	sprite_angle = 0
+	knockback_time = 0
 }
 
 }

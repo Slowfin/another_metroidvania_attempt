@@ -6,3 +6,4 @@ if trigger == 0 {
 		instance_create_layer(x,y,"Game",obj_heal_status).sprite_index = spr_heal_fail
 	}
 }
+obj_player.vsp = -1
