@@ -50,7 +50,7 @@ if ride {
 	sprite_index = spr_player_climb
 } else if dash_time > 0 {
 	sprite_index = spr_player_dash
-} else if !grounded and jumps >= 2 {
+} else if !grounded and jumps >= 2 and pwr_double_jump {
 	sprite_index = spr_player_jump_double
 } else if !grounded and jumps < 2 {
 	sprite_index = spr_player_jump
@@ -114,7 +114,7 @@ if ((key_jump or jump_buffer > 0) and grounded) or (jump_coyot > 0 and key_jump 
 	sprite_xscale = 1.4 * sprite_turn
 	if jumps < 2 {
 		audio_play_sound(snd_jump,1,0,1,0,random_range(0.9,1.1))
-	} else {
+	} else if jumps >= 2 and pwr_double_jump {
 		audio_play_sound(snd_jump,1,0,1,0,random_range(1.3,1.5))
 	} 	
 	sprite_yscale = 0.8

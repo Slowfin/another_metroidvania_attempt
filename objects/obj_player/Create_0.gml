@@ -23,7 +23,7 @@ grounded = false
 grounded_time = 0
 cant_move = false
 
-ketchup = 5
+ketchup = 0
 ketchup_max = 5
 
 max_hp = 5
@@ -38,7 +38,7 @@ invincible = 0
 pwr_wall_jump = false
 pwr_dash = false
 pwr_double_jump = false
-pwr_ride = true
+pwr_ride = false
 pwr_swim =  false
 
 jump_power = 3.7
@@ -98,6 +98,7 @@ function player_heal() {
 	sprite_angle = 0
 	_x = x
 	_y = y
+	instance_create_layer(x,y-16,"Game_lower",obj_heal_bar)
 }
 }
 

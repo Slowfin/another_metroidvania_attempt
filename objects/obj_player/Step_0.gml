@@ -61,6 +61,10 @@ if get_hit {
 	} else {
 	prev_state	= states_player.normal
 	}
+	if state == states_player.heal {
+		x = _x
+		y = _y	
+	}
 	knockback_time = 40
 	state = states_player.knockback
 	hsp = sign(x - source_x) * 2
@@ -79,6 +83,7 @@ if hp <= 0 {
 }
 
 ketchup = clamp(ketchup,0,ketchup_max)
+hp = clamp(hp,0,max_hp)
 
 //if hp <= 0 {
 //	sprite_index = spr_player_dead	

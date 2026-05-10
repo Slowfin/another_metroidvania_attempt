@@ -1,12 +1,18 @@
-cursor_sprite = spr_cursor
-window_set_caption("жоперный омега чпоньк")
-if keyboard_check_pressed(vk_f11) {
-		fullscreen = !fullscreen
-		window_set_fullscreen(fullscreen)
-} 
-if keyboard_check_pressed(vk_f10) {
-		global.show_hitboxes = !global.show_hitboxes
-} 
+
+if keyboard_check_pressed(vk_escape) {
+	room_goto(main_menu)
+	
+}
+
+image_index_extra_sp -= 1 
+if image_index_extra_sp <= 0 {
+	image_index_extra_sp = image_index_extra_sp_set
+	image_index_extra += 1
+}
+
+if image_index_extra > image_index_extra_max {
+	image_index_extra = 0	
+}
 
 // LOAD
 //function save_load() {
@@ -47,12 +53,12 @@ function save_load() {
 	//	return false
 	//}
 	show_debug_message("========== ЗАГРУЗКА ==========")
-	if !file_exists("savegame.sav") { 
+	if !file_exists("savegame" + string(global.save_slot_play) + ".sav") { 
 		show_debug_message("сохранение не найдено :(")	
 		return false
 	}
 	
-	 var buff = buffer_load("savegame.sav")
+	 var buff = buffer_load("savegame" + string(global.save_slot_play) + ".sav")
     if buff == -1 {
 		return false
 		 }
@@ -67,16 +73,24 @@ function save_load() {
 	
 	global.transition = false
 	global.transition_alpha = 1
+	room_goto(save_data.last_room)
+	if !instance_exists(obj_player) {
+	instance_create_layer(save_data.player.pos._x,save_data.player.pos._y,"Player",obj_player)
+	}
 	obj_player.hp = save_data.player.max_hp 
 	obj_player.x = save_data.player.pos._x
 	obj_player.y = save_data.player.pos._y
+	obj_player.ketchup = 1
 	obj_player.pwr_wall_jump = save_data.powers.wall_jump
 	obj_player.pwr_dash = save_data.powers.dash
 	obj_player.pwr_double_jump = save_data.powers.double_jump
 	obj_player.pwr_ride = save_data.powers.ride
 	obj_player.pwr_swim = save_data.powers.swim
-	obj_player.ketchup = obj_player.ketchup_max
-	 room_goto(save_data.last_room)
+	obj_player.state = states_player.normal
+	obj_player.vsp = 0
+	obj_player.hsp = 0
+	obj_player.ride = false
+	global.temp_enemies_killed = {}
 	 return true
 	} 
 	

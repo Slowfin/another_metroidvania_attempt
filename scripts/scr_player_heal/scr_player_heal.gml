@@ -66,14 +66,16 @@ heal_time -= 1
 
 if heal_time <= 0 {
 	state = prev_state	
-	hp = max_hp
+	hp += 2
+	x = _x
+	y = _y
 }
 
 var shake_x = choose(-0.5,0.5)
 var shake_y = choose(-0.5,0.5)
 
-x = _x + shake_x
-y = _y + shake_y 
+//x = _x + shake_x
+//y = _y + shake_y 
 
 }
 
