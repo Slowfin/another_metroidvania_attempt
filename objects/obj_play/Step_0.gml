@@ -1,5 +1,5 @@
 if state == "menu" {
-
+y = _y
 if position_meeting(mouse_x,mouse_y,self) {
 	hover = true	
 } else {
@@ -28,4 +28,5 @@ if hover and mouse_check_button_released(mb_left) {
 
 if state == "save" {
 	scale = 1
+	y = -100
 }

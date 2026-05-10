@@ -13,7 +13,10 @@
     "name":"menu",
     "path":"folders/objects/menu.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_mouse_button",
+    "path":"objects/obj_mouse_button/obj_mouse_button.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

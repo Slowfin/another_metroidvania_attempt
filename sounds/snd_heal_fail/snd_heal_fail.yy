@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"snd_heal_fail.wav",
-  "volume":0.44,
+  "volume":0.33,
 }

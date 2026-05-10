@@ -91,7 +91,7 @@ sprite_turn = 1
 
 // heal
 function player_heal() {
-	if ketchup >= 5 and key_heal and !cant_move{
+	if ketchup >= 5 and key_heal and !cant_move and !ride {
 	ketchup = 0
 	if state != states_player.knockback {
 	prev_state = state
@@ -104,12 +104,13 @@ function player_heal() {
 	knockback_time = 2
 	_x = x
 	_y = y
+	audio_play_sound(snd_heal_start,1,0,1,0,random_range(0.9,1.1))
 	instance_create_layer(x,y-16,"Game_lower",obj_heal_bar)
 }
 }
 
 function player_attack_ketchup()  {
-	if ketchup >= 2 and key_attack_ketchup and pwr_ketchup_attack {
+	if ketchup >= 2 and key_attack_ketchup and pwr_ketchup_attack and !ride {
 	ketchup -= 2
 	if state != states_player.knockback {
 		prev_state = state

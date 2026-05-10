@@ -1,4 +1,8 @@
-cursor_sprite = spr_cursor
+if position_meeting(mouse_x,mouse_y,obj_mouse_button) {
+cursor_sprite = spr_cursor_hover
+} else {
+cursor_sprite = spr_cursor	
+}
 window_set_caption("жоперный омега чпоньк")
 if keyboard_check_pressed(vk_f11) {
 		fullscreen = !fullscreen

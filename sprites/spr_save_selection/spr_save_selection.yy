@@ -20,7 +20,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"b2a26f90-3eac-47ec-b724-7e43a665e217","blendMode":0,"displayName":"default","isLocked":false,"name":"b2a26f90-3eac-47ec-b724-7e43a665e217","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"d4340bfc-a59d-4d52-bd51-4da8afa64c24","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"d4340bfc-a59d-4d52-bd51-4da8afa64c24","opacity":85.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"d4340bfc-a59d-4d52-bd51-4da8afa64c24","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"d4340bfc-a59d-4d52-bd51-4da8afa64c24","opacity":59.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_save_selection",
   "nineSlice":null,
