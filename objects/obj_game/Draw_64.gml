@@ -104,6 +104,7 @@ if global.debug {
 	draw_text(10,10+(15*9),room_get_name(room))
 	draw_text(10,10+(15*10),string(obj_player.state))
 	draw_text(10,10+(15*11),obj_player.jumps)
+	draw_text(10,10+(15*12),global.room_type)
 }
 
 if global.transition_alpha > 0 {

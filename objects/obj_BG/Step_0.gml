@@ -4,3 +4,4 @@
 //layer_x("BG_far",lerp(0,camera_get_view_x(view_camera[0]),0.025))
 layer_x("BG_fore",lerp(0,camera_get_view_x(view_camera[0]),0.1))
 layer_x("Background",lerp(0,camera_get_view_x(view_camera[0]),0.08))
+layer_y("Background",lerp(0,camera_get_view_y(view_camera[0]),0.08))

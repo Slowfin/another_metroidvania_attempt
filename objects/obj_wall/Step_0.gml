@@ -5,6 +5,9 @@ if wall == "pink" {
 if wall == "dirt" {
 	sprite_index = spr_wall_dirt	
 }
+if wall == "farm" {
+	sprite_index = spr_wall_farm	
+}
 
 if hp <= 0 {
 	instance_destroy()
@@ -189,6 +192,6 @@ if collide_with == 4 and collide_with_diag == 2 {
 	
 if collide_with_diag >= 4 and collide_with >= 4   {  
 	 image_index = 9	
-	 image_xscale = 1 image_yscale = 1 image_angle = 1
+	 image_xscale = 1 image_yscale = 1 image_angle = 0
 }
 }
