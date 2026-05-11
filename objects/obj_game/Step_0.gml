@@ -108,6 +108,11 @@ obj_player.vsp = 0
 global.transition_alpha += trans_sp
 } else if global.transition == false  {
 obj_player.cant_move = false
+if assend > 0 {
+	obj_player.vsp = -assend
+	assend = 0
+	obj_player.hsp_force = 1 * obj_player.sprite_turn
+} 
 global.transition_alpha -= trans_sp
 }	
 

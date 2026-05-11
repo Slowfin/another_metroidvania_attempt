@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_enemy_alert",
   "parent":{
-    "name":"scripts",
-    "path":"folders/scripts.yy",
+    "name":"apple",
+    "path":"folders/scripts/enemies/apple.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

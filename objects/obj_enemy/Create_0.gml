@@ -21,7 +21,7 @@ angle = 0
 prev_state = 0
 can_get_hit = true	
 
-id_name = room_get_name(room) + obj_name
+id_name = room_get_name(room) + "_" + string(object_get_name(object_index)) + "_" + string(obj_id)
 
 if global.temp_enemies_killed[$ id_name] == true {
 	instance_destroy()	

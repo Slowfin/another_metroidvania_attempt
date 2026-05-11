@@ -26,8 +26,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"sprites",
-    "path":"folders/sprites.yy",
+    "name":"apple",
+    "path":"folders/sprites/enemies/apple.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

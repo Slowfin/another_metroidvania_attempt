@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_enemy_worm_knockbackm",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_enemy_worm_knockbackm",
+  "parent":{
+    "name":"worm",
+    "path":"folders/scripts/enemies/worm.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

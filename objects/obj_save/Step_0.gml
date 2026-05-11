@@ -1,5 +1,5 @@
 scr_keybinds()
-if place_meeting(x,y,obj_player) and key_down {
+if place_meeting(x,y,obj_player) and key_down_pressed {
 	save_game()
 }
 

@@ -58,7 +58,7 @@ if get_hit {
 	alarm[1] = 15
 	obj_camera.alarm[0] = 5
 	obj_camera.shake_power = 2
-	obj_get_hit.image_alpha = 1
+	instance_create_layer(x,y,"Game",obj_get_hit)
 	layer = layer_get_id("Instances_white")
 	if state != states_player.heal and state != states_player.attack_ketchup and state != states_player.knockback {
 	prev_state	= state	

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_player_attack_ketchup",
   "parent":{
-    "name":"scripts",
-    "path":"folders/scripts.yy",
+    "name":"player",
+    "path":"folders/scripts/player.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

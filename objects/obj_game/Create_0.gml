@@ -1,6 +1,7 @@
 
 global.temp_enemies_killed = {}
 global.permanent_enemies_killed = {}
+global.walls_broken = {}
 
 global.show_hitboxes = false
 
@@ -11,6 +12,7 @@ trans_room =  0
 trans_x = 0
 trans_y = 0
 trans_sp = 0.04
+assend = 0
 
 image_index_extra = 0
 image_index_extra_sp_set = 10
@@ -64,5 +66,7 @@ function save_load() {
 	obj_player.hsp = 0
 	obj_player.ride = false
 	global.temp_enemies_killed = {}
+	global.permanent_enemies_killed = save_data.progress.perm_enemies
+	global.walls_broken = save_data.progress.walls_broken
 	 return true
 	} 

@@ -6,6 +6,9 @@ image_index_extra_max = sprite_get_number(spr_arrow_down)
 
 function save_game() {
 	obj_player.hp = obj_player.max_hp
+	if !instance_exists(obj_game_save) {
+	instance_create_layer(x,y,"Game",obj_game_save)
+	}
 	global.temp_enemies_killed = {}
 	var save_file = {
 	last_room: room,
@@ -24,7 +27,8 @@ function save_game() {
 			},
 	progress: {
 		temp_enemies: global.temp_enemies_killed = {},	
-		perm_enemies: global.permanent_enemies_killed = {}	
+		perm_enemies: global.permanent_enemies_killed,
+		walls_broken: global.walls_broken
 	}
 	
 }

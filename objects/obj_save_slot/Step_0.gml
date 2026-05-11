@@ -2,7 +2,9 @@ if safe > 0 {
 	safe -= 1
 }	
 
-if obj_play.state == "save" and safe <= 0 {
+if obj_play.state == "save" {
+	y = _y
+	if safe <= 0 {
 
 if position_meeting(mouse_x,mouse_y,self) {
 	hover = true	
@@ -25,8 +27,8 @@ if hover and mouse_check_button_released(mb_left) {
 		if file_exists("savegame" + string(global.save_slot_play) + ".sav") {
 			save_load()
 		} else if !file_exists("savegame" + string(global.save_slot_play) + ".sav") {
-			room_goto(rm_start)
-			 with instance_create_layer(252,186,"Player",obj_player) {
+			room_goto(rm_dirt_start)
+			 with instance_create_layer(98,-16,"Player",obj_player) {
 				pwr_wall_jump = false
 				pwr_dash = false
 				pwr_double_jump = false
@@ -42,4 +44,6 @@ if hover and mouse_check_button_released(mb_left) {
 	}
 }
 
-}
+} } else {
+	y = -500
+}	

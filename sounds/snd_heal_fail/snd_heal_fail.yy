@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.49349207,
+  "duration":0.1414966,
   "exportDir":"",
   "name":"snd_heal_fail",
   "parent":{

@@ -1,0 +1,1 @@
+anim_count += 1
