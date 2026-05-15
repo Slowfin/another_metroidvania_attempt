@@ -20,6 +20,8 @@ attack_time = 0
 angle = 0
 prev_state = 0
 can_get_hit = true	
+coiny = true
+coin_drop = 5
 
 id_name = room_get_name(room) + "_" + string(object_get_name(object_index)) + "_" + string(obj_id)
 

@@ -2,22 +2,10 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377
 function scr_player_normal(){
 // collisions
-if place_meeting(x+hsp,y,obj_wall) {
-	while !place_meeting(x+sign(hsp),y,obj_wall) {
-		x += sign(hsp)
-	}
-	hsp = 0
-}	
-x += hsp
-
-if place_meeting(x,y+vsp,obj_wall) {
-	while !place_meeting(x,y+sign(vsp),obj_wall) {
-		y += sign(vsp)
-	}
-	vsp = 0
-}	
-y += vsp
-
+var lay_id = layer_get_id("Walls")
+var tileset_id = layer_tilemap_get_id(lay_id)
+var walls = [tileset_id,obj_wall]
+scr_wall_collision()
 // swim 
 if place_meeting(x,y,obj_water) {
 	state = states_player.swim	
@@ -74,7 +62,7 @@ if move > 0 {
 } }
 
 // grounded
-if place_meeting(x,y+1,obj_wall) {
+if place_meeting(x,y+1,walls) {
 	jump_spin = false
 	if grounded_time < 5 {
  	grounded_time += 1      
@@ -192,7 +180,7 @@ if jump_spin {
 }
 
 // head bump 
-if place_meeting(x,y-1,obj_wall) {
+if place_meeting(x,y-1,walls) {
 	vsp = 0.5
 }
 
@@ -238,7 +226,7 @@ if dash_cd > 0 {
 
 // wall jump
 if !cant_move {
-if place_meeting(x+sign((move)*4),y,obj_wall) and pwr_wall_jump and !grounded {
+if place_meeting(x+sign((move)*4),y,walls) and pwr_wall_jump and !grounded {
 	jump_spin = false
 	pogo = false
 	wall_jump = 7
@@ -307,7 +295,7 @@ if ride {
 		obj_camera.alarm[0] = 5
 	}
 	// jump while hooking
-	if key_jump and !place_meeting(x,y,obj_wall) {	
+	if key_jump and !place_meeting(x,y,walls) {	
 		hsp_force = (ride_sp * 0.6) * ride_target_turn
 		acceleration = 1
 		ride = false

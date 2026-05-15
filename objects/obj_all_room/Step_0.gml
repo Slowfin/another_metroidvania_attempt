@@ -22,7 +22,6 @@ for (var i = 0; i < array_length(rooms_dirt);i++) {
 }
 
 
-
 if global.room_type == "dirt" {
 	if !audio_is_playing(mus_dirt) {
 		audio_play_sound(mus_dirt,1,1,1,0)	

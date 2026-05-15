@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.42857143,
+  "duration":0.47321996,
   "exportDir":"",
   "name":"snd_slash",
   "parent":{

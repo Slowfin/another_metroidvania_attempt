@@ -23,8 +23,10 @@ if y > limit_y2 {
 }
 	
 
-x = clamp(x,limit_x1+160,limit_x2-160)
-y = clamp(y,limit_y1+90+10,limit_y2-90+16)
+//x = clamp(x,limit_x1+160,limit_x2-160)
+//y = clamp(y,limit_y1+90+10,limit_y2-90+16)
+x = clamp(x,0+160,room_width-160)
+y = clamp(y,0+90+10,room_height-90+16)
 
 if obj_player.vsp > 0 {
 	vsp_offset = obj_player.vsp * 2

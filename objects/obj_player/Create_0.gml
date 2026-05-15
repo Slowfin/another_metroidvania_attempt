@@ -25,6 +25,7 @@ cant_move = false
 
 ketchup = 0
 ketchup_max = 5
+cash = 0
 
 max_hp = 5
 hp = max_hp

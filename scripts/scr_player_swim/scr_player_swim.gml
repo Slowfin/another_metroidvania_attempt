@@ -2,21 +2,10 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377
 function scr_player_swim(){
 // collisions
-if place_meeting(x+hsp,y,obj_wall) {
-	while !place_meeting(x+sign(hsp),y,obj_wall) {
-		x += sign(hsp)
-	}
-	hsp = 0
-}	
-x += hsp
-
-if place_meeting(x,y+vsp,obj_wall) {
-	while !place_meeting(x,y+sign(vsp),obj_wall) {
-		y += sign(vsp)
-	}
-	vsp = 0
-}	
-y += vsp
+var lay_id = layer_get_id("Walls")
+var tileset_id = layer_tilemap_get_id(lay_id)
+var walls = [tileset_id,obj_wall]
+scr_wall_collision()
 
 // if can't swim can jump out
 if !pwr_swim {
@@ -149,7 +138,7 @@ if ride {
 		ride = false	
 	}
 	// jump while hooking
-	if key_jump and !place_meeting(x,y,obj_wall) {		
+	if key_jump and !place_meeting(x,y,walls) {		
 		if ride_target.x > x {
 			ride_target_turn = 1	
 		} else {

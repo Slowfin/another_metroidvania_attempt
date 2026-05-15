@@ -40,14 +40,23 @@ if place_meeting(x,y,obj_enemies) {
 	obj_camera.shake_power = 1
 }
 
-if place_meeting(x,y,obj_wall) {
-	with obj_wall if place_meeting(x,y,obj_polovnik) and breakable {
+if place_meeting(x,y,obj_wall_pink) {
+	with obj_wall_pink if place_meeting(x,y,obj_polovnik) and breakable {
 		hp -= 1
 		audio_stop_sound(snd_wall_break)
 		audio_play_sound(snd_wall_break,1,0,1,0,random_range(0.85,1.15))
 		obj_camera.alarm[0] = 5
 		obj_camera.shake_power = 1
 	}	
+}
 
+if place_meeting(x,y,obj_breakable) {
+	with obj_breakable if place_meeting(x,y,obj_polovnik) {
+		hp -= 1
+		audio_stop_sound(break_snd)
+		audio_play_sound(break_snd,1,0,1,0,random_range(0.85,1.15))
+		obj_camera.alarm[0] = 5
+		obj_camera.shake_power = 1
+	}	
 }
 

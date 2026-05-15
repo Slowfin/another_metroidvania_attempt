@@ -3,6 +3,7 @@ global.temp_enemies_killed = {}
 global.permanent_enemies_killed = {}
 global.walls_broken = {}
 
+
 global.show_hitboxes = false
 
 global.transition = false
@@ -54,6 +55,7 @@ function save_load() {
 	obj_player.hp = obj_player.max_hp
 	obj_player.x = save_data.player.pos._x
 	obj_player.y = save_data.player.pos._y
+	obj_player.cash = save_data.player.cash
 	obj_player.ketchup = save_data.player.ketchup
 	obj_player.pwr_wall_jump = save_data.powers.wall_jump
 	obj_player.pwr_dash = save_data.powers.dash

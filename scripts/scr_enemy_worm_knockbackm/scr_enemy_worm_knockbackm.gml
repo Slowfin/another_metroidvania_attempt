@@ -3,18 +3,20 @@
 function scr_enemy_worm_knockback(){
 	
 	sprite_index = spr_enemy_worm
-	
+	var lay_id = layer_get_id("Walls")
+	var tileset_id = layer_tilemap_get_id(lay_id)
+	var walls = [tileset_id,obj_wall]
 	// collisions
-if place_meeting(x+hsp,y,obj_wall) {
-	while !place_meeting(x+sign(hsp),y,obj_wall) {
+if place_meeting(x+hsp,y,walls) {
+	while !place_meeting(x+sign(hsp),y,walls) {
 		x += sign(hsp)
 	}
 	hsp *= -1
 }	
 x += hsp
 
-if place_meeting(x,y+vsp,obj_wall) {
-	while !place_meeting(x,y+sign(vsp),obj_wall) {
+if place_meeting(x,y+vsp,walls) {
+	while !place_meeting(x,y+sign(vsp),walls) {
 		y += sign(vsp)
 	}
 	vsp = 0
@@ -22,7 +24,7 @@ if place_meeting(x,y+vsp,obj_wall) {
 y += vsp
 vsp += global.grv
 
-if place_meeting(x + turn,y,obj_wall) {
+if place_meeting(x + turn,y,walls) {
 	turn *= -1
 }	
 

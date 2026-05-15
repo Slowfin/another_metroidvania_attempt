@@ -58,7 +58,7 @@
 //	draw_sprite_ext(spr_health_2,image_index,115,72,4,4,0,c_white,1)
 //}
 
-
+draw_set_font(fnt_pixel)
 if obj_player.hp < 1 {
 draw_sprite_ext(spr_health_bar_1,0,130,50,4,4,0,c_white,1)
 }
@@ -89,8 +89,15 @@ if obj_player.ketchup <= 0 {
 	draw_sprite_ext(spr_ketchup_bar,1,65,228,4,4,0,c_white,1)
 }
 
+draw_sprite_ext(spr_coin,-1,130,150,4,4,0,c_white,1)
+draw_set_font(fnt_pixel_4x4)
+draw_set_halign(fa_left)
+draw_set_colour(c_yellow)
+draw_text_transformed(145,140,obj_player.cash,1,1,0)
+
 draw_set_colour(c_white)
 if global.debug {
+	draw_set_font(fnt_pixel)
 	draw_set_halign(fa_left)
 	draw_text(10,10+(15*0),"slot"+string(global.save_slot_play))
 	draw_text(10,10+(15*1),"hsp "+string(obj_player.hsp))

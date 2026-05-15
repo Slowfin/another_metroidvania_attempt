@@ -69,7 +69,7 @@ if get_hit {
 		x = _x
 		y = _y	
 	}
-	knockback_time = 40
+	knockback_time = 10
 	state = states_player.knockback
 	hsp = sign(x - source_x) * 2
 	vsp = -4

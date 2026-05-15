@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"powers",
-    "path":"folders/objects/powers.yy",
+    "path":"folders/objects/collectables/powers.yy",
   },
   "parentObjectId":null,
   "persistent":false,

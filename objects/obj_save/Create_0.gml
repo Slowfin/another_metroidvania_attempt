@@ -16,6 +16,7 @@ function save_game() {
 		max_hp: obj_player.max_hp,	
 		ketchup: obj_player.ketchup,
 		pos: { _x: x, _y: y},
+		cash: obj_player.cash
 	},
 	powers: {
 		wall_jump: obj_player.pwr_wall_jump,

@@ -81,6 +81,7 @@ function save_load() {
 	obj_player.hp = obj_player.max_hp
 	obj_player.x = save_data.player.pos._x
 	obj_player.y = save_data.player.pos._y
+	obj_player.cash = save_data.player.cash
 	obj_player.ketchup = save_data.player.ketchup
 	obj_player.pwr_wall_jump = save_data.powers.wall_jump
 	obj_player.pwr_dash = save_data.powers.dash
@@ -91,6 +92,7 @@ function save_load() {
 	obj_player.vsp = 0
 	obj_player.hsp = 0
 	obj_player.ride = false
+	
 	global.temp_enemies_killed = {}
 	 return true
 	} 

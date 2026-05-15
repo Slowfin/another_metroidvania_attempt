@@ -27,7 +27,7 @@
   "origin":4,
   "parent":{
     "name":"powers",
-    "path":"folders/sprites/powers.yy",
+    "path":"folders/sprites/collectables/powers.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
